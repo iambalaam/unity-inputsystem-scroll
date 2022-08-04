@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ScrollReporter : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class ScrollReporter : MonoBehaviour
 
     void LateUpdate()
     {
-        float scroll = Input.GetAxisRaw("Mouse ScrollWheel");
+        float scroll = Mouse.current.scroll.ReadUnprocessedValue().y;
         if (scroll != 0)
         { 
             tmPro.text = scroll.ToString("n4");
